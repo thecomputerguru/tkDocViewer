@@ -12,7 +12,7 @@ except (ImportError):
     from Tkinter import *
     from tkFileDialog import askopenfilename
 
-from .widget import DocViewer
+from widget import DocViewer
 
 
 class DocViewerDemo(Frame):

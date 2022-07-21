@@ -11,7 +11,7 @@ These are internal APIs and subject to change at any time.
 import os
 import threading
 
-from .backends import AutoBackend
+from backends import AutoBackend
 
 
 # On Python 2, basestring is the superclass for ASCII and Unicode strings.

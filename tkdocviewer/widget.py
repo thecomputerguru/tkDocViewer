@@ -36,11 +36,11 @@ try:
 except (ImportError):
     PIL = None
 
-from .backends import (BACKEND_DOC_EXTENSIONS,
+from backends import (BACKEND_DOC_EXTENSIONS,
                        BACKEND_IMAGE_EXTENSIONS,
                        BACKENDS_BY_EXTENSION,
                        GhostscriptBackend, gs_dpi)
-from .rendering import DocumentStarted, PageCount, PageStarted, RenderingThread
+from rendering import DocumentStarted, PageCount, PageStarted, RenderingThread
 
 
 __all__ = ["DocViewer"]
@@ -191,9 +191,15 @@ class DocViewer(tk.Frame, object):
         if not "borderwidth" in kw:
             self["borderwidth"] = 1
 
+        if "bg" in kw:
+            self.background_color = kw["bg"]
+        else:
+            self.background_color = "light gray"
+
         # Canvas widget to display the document
         c = self._canvas = tk.Canvas(self,
-                                     takefocus=1)
+                                     takefocus=1,
+                                     bg=self.background_color)
 
         # Forward focus events to the canvas
         self.focus_set = self._canvas.focus_set

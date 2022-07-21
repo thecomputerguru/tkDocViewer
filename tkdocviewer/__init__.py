@@ -12,7 +12,7 @@ external applications to work. See the tkdocviewer.backends
 subpackage for details.
 """
 
-from .widget import DocViewer
+from widget import DocViewer
 
 # The only thing we need to publicly export is the viewer widget
 __all__ = ["DocViewer"]
